@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+//              显示在标题上
                 setTitle(hourOfDay+":"+minute);
             }
         });
