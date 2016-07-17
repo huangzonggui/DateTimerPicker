@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         final int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
-        setTitle(year+"-"+(month+1)+"-"+day+"-"+hour+"-"+minute);
+        setTitle(year+"-"+(month+1)+"-"+day+"-"+hour+"："+minute);
 
         datePicker.init(year, month, day, new DatePicker.OnDateChangedListener() {
             @Override
