@@ -1,5 +1,7 @@
 package com.example.hzg.datetimerpicker;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
-        final int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
         setTitle(year+"-"+(month+1)+"-"+day+"-"+hour+"："+minute);
 
@@ -47,8 +49,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
 //              显示在标题上
-                setTitle(hourOfDay+":"+minute);
+                setTitle(hourOfDay + ":" + minute);
             }
         });
+
+        new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                setTitle(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+            }
+        },year,month,day).show();
+//        new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+//            @Override
+//            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+//                setTitle(hourOfDay + ":" + minute);
+//            }
+//        },hour,minute,true).show();
     }
 }
